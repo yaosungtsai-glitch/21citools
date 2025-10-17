@@ -28,6 +28,7 @@ function themeheader()
 {
     echo "<table border='0' align='center' width='80%'>";
     echo "<tr><td>\n";      //上方區塊開始
+    //echo "<img src='images/21clogo.png' width='10%' height='10%'>";
     if(admin_login()=='login')
        echo "<img src='images/loginlogo.png'>";
     else

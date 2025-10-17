@@ -19,10 +19,10 @@ define("SCRIPT_PATH",dirname(__FILE__));    //程式實際放置位置
 
 define("ADODATABASE","mysqli");
 define("ADOHOST_MASTER","localhost");
-define("ADODBNAME",'tech');
+define("ADODBNAME",'21c');
 define("ADOUNAME","root");
 define("ADOPASS","");
-define("ADOPREFIX","tech");
+define("ADOPREFIX","21c");
 
 /*
 define("ADODATABASE_API","mysqli");
