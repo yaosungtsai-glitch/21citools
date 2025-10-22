@@ -54,10 +54,8 @@ function customerlist(){
 $op='customer';
 if ($_REQUEST['op']==$op && isAuthority($_SESSION['aid'],$_REQUEST['op']))
 {	
-
 	switch ($_REQUEST['op2'])
 	{
-		
 		case "customerlist":	
 			customerlist();
 		break;

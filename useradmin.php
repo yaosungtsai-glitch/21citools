@@ -166,16 +166,16 @@ function GraphicAdmin()
 		}
 	}
 	$_SESSION['counter'] = 0;   //計算每列個數以判斷是否要換行的參數
-	for ($i=0; $i < count($menuList); $i++)
-	{
-		if ($menuList[$i] != "")
-		{
-			include_once($linksdir->path."/".$menuList[$i]);
-			if ($_SESSION['counter'] == USERLOGINFUNCPERROW) {
-				echo "</tr><tr valign='top'> \n";
-				$_SESSION['counter'] = 0;
-			} else {
-				$_SESSION['counter'] = $_SESSION['counter'] + 1;
+	if(is_array($menuList)){
+		for ($i=0; $i < count($menuList); $i++) {
+			if ($menuList[$i] != ""){
+				include_once($linksdir->path."/".$menuList[$i]);
+				if ($_SESSION['counter'] == USERLOGINFUNCPERROW) {
+					echo "</tr><tr valign='top'> \n";
+					$_SESSION['counter'] = 0;
+				}else{
+					$_SESSION['counter'] = $_SESSION['counter'] + 1;
+				}
 			}
 		}
 	}

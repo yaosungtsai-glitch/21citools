@@ -741,8 +741,10 @@ function include_opdir($op){
 	$dirstr=dirname(__FILE__);
 	if($str[$num-1]=='administrator.php'){
 		$include_opdir ="$dirstr/admin/modules/$op";
-	}else{
+	}elseif($str[$num-1]=='loginadmin.php'){
 		$include_opdir ="$dirstr/service/modules/$op";
+	}else{
+		$include_opdir ="$dirstr/userlogin/modules/$op";
 	}		
 	if (is_dir($include_opdir)) {
 		$files = scandir("$include_opdir"); 

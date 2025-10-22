@@ -29,10 +29,7 @@ function themeheader()
     echo "<table border='0' align='center' width='80%'>";
     echo "<tr><td>\n";      //上方區塊開始
     //echo "<img src='images/21clogo.png' width='10%' height='10%'>";
-    if(admin_login()=='login')
-       echo "<img src='images/loginlogo.png'>";
-    else
-        echo "<img src='images/logo.png'>";
+        echo "<img src='images/".admin_login()."'>";
     echo "</td></tr>\n";    //上方區塊結束
     echo "<tr><td>\n";      //中間區塊開始
 }
@@ -41,10 +38,10 @@ function admin_login(){
     $str =  explode("/",$_SERVER['SCRIPT_FILENAME']);
     $num=count($str);
     if($str[$num-1]=="loginadmin.php"){
-        $re='login';
-    }else{
-        $re='admin';
-    }
+        $re='loginadmin.png';
+    }elseif($str[$num-1]=="administrator.php"){
+        $re='admin.png';
+    }else $re='useradmin.png';
     return $re;
 }
 ?>

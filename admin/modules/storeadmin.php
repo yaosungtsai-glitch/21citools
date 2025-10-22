@@ -27,6 +27,8 @@ function storeadmin_displaymenu()
 	OpenTable1();
 	echo "<div class='main-menu2'>
 <div class='menu_con'>"
+	."<a href='".$_SERVER['PHP_SELF']."?op=storeadmin&op2=ADDSTORE&sel=sloglist&PHPSESSID=".session_id()."' class='categorylinktext'>"._ADDSTORE."</a><span>|</span>"
+	."<a href='".$_SERVER['PHP_SELF']."?op=storeadmin&op2=STOREINFO&sel=sloglist&PHPSESSID=".session_id()."' class='categorylinktext'>"._STOREINFO."</a><span>|</span>"
 	."<a href='".$_SERVER['PHP_SELF']."?op=storeadmin&op2=SUBMENU&sel=sadmin&PHPSESSID=".session_id()."' class='categorylinktext'>"._MANAGESADMIN."</a><span>|</span>"
 	."<a href='".$_SERVER['PHP_SELF']."?op=storeadmin&op2=SUBMENU&sel=sfunction&PHPSESSID=".session_id()."' class='categorylinktext'>"._MANAGESFUNCTION."</a><span>|</span>"
 	."<a href='".$_SERVER['PHP_SELF']."?op=storeadmin&op2=LOGLIST&sel=sloglist&PHPSESSID=".session_id()."' class='categorylinktext'>"._LOGFUNCTION."</a>"
@@ -36,7 +38,6 @@ function storeadmin_displaymenu()
 	echo "<br/>";
 
 }
-
 
 /**
  * 顯示子功能選單
@@ -940,6 +941,33 @@ function log_list()
 	CloseTable();
 }
 
+function addstore(){
+	storeadmin_displaymenu();
+	OpenTable();
+	echo "<h3>"._ADDSTORE."</h3>";
+	echo "<form action='".$_SERVER['PHP_SELF']."' method='post'>\n";
+	echo "<input type='hidden' name='op2' value='ADDINGSTORE'>\n";
+	echo "<p align='center'>"._STORENAME."&nbsp;<input type = 'text' name='name' required='required'></p>\n";
+	echo "<p align='center'>"._STOREREMARK."&nbsp;";
+	echo "<textarea name='remark' required='required'></textarea></p>\n";
+	echo "<input type='submit'>\n";
+	echo "</form>\n";
+	CloseTable();
+	echo "<br/>";
+}
+
+function addingstore(){
+	$sql='insert into '.ADOPREFIX."_store(name,ipmanage,enable,remark) values('".$_POST['name']."','0','1','".$_POST['remark']."')";
+	header("location:".$_SERVER['PHP_SELF']."&op2=STOREINFO");
+}
+
+function storeinfo(){
+	storeadmin_displaymenu();
+	OpenTable();
+	echo "<h3>"._STOREINFO."</h3>";
+	CloseTable();
+	echo "<br/>";
+}
 
 if ($_REQUEST['op']=="storeadmin" && isAuthority($_SESSION['aid'],$_REQUEST['op']))
 {
@@ -961,6 +989,23 @@ if ($_REQUEST['op']=="storeadmin" && isAuthority($_SESSION['aid'],$_REQUEST['op'
 			include_once("footer.php");
 			break;
 
+			case "ADDSTORE":
+				//storeadmin_displaymenu2();			
+				addstore();
+				include_once("footer.php");
+				break;
+
+		case "ADDINGSTORE":
+					//storeadmin_displaymenu2();			
+				addingstore();
+				include_once("footer.php");
+				break;
+
+		case "STOREINFO":
+					//storeadmin_displaymenu2();			
+				storeinfo();
+				include_once("footer.php");
+				break;
 		//管理員列表
 		case "LISTSADMIN":
 			list_sadmin();

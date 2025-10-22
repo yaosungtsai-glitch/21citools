@@ -40,5 +40,8 @@ define("_NOSADMINTOSET","目前尚無門店帳號可設定,請先新增門店帳
 define("_LOGFUNCTION","門店管理員使用記錄");
 define("_LOGIP","IP位址");
 define("_LOGDATEIME","登入時間");
-
+define("_ADDSTORE","新增門店資訊");
+define("_STORENAME","門店名稱");
+define("_STOREREMARK","備註說明");
+define("_STOREINFO","門店列表");
 ?>

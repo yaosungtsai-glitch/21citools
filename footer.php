@@ -10,7 +10,7 @@
 
 function foot()
 {  echo "<p align='center'>";
-	echo "<img src='images/21clogo.png' width='10%' height='10%'>";
+	echo "<img src='images/footer.png' width='10%' height='10%'>";
    echo "&nbsp;"._FOOTERTXT."</p>";
    echo "</html>";
 
