@@ -112,13 +112,12 @@ define("_POLICY_E","Rule and Privacy Policy");
 ***********************************************/
 define("_AUTHORSADMIN","管理員管理");
 define("_IPMANAGEADMIN","登入IP管理");
-define("_STOREADMIN","商店帳號管理");
+define("_STOREADMIN","門店帳號管理");
 define("_MERCHANTSADMIN","特約商店管理");
 define("_SHORTURL","短網址管理");
-define("_MEMBERSADMIN","會友資訊管理");
+//define("_MEMBERSADMIN","會友資訊管理");
+define("_CUSTOMERADMIN","客戶資料管理");
 define("_USERADMIN","會員功能管理");
-
-
 
 define("_RULE","會員章程");
 define("_VIPUSERDATAEDIT","付費會員管理");
